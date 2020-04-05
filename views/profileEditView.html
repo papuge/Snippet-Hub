@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Edit profile</title>
+</head>
+
+<body>
+    <main>
+        <header id="header">
+            <h2>Snippet Hub</h2>
+            <input type="text" id="search_input" placeholder="Search">
+            <button>
+                <i class="material-icons">add</i>
+            </button>
+            <button>
+                <i class="material-icons">notifications</i>
+            </button>
+            <select name="option" id="profile_options">
+                <option value="edit_profile">Edit profile</option>
+                <option value="logout">Logout</option>
+            </select>
+        </header>
+
+        <form action="" method="post">
+            <fieldset>
+                <legend>Edit profile</legend>
+    
+                <label for="username">Username</label>
+                <input type="text" name="username" id="">
+    
+                <label for="firstName">First name</label>
+                <input type="text" name="firstName" id="">
+                
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" id="">
+    
+                <label for="about">Short tell about yourself</label>
+                <textarea name="about" id="" cols="30" rows="10"></textarea>
+
+                <label for="avatar">Profile image</label>
+                <input type="file" name="avatar"></input>
+    
+                <input type="submit" value="Save">
+            </fieldset>
+        </form>
+    </main>
+</body>
+
+</html>
