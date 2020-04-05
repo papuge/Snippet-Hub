@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Snippet Hub</title>
+</head>
+
+<body>
+    <header id="header">
+        <h2>Snippet Hub</h2>
+        <input type="text" id="search_input" placeholder="Search">
+        <button>
+            <i class="material-icons">add</i>
+        </button>
+        <button>
+            <i class="material-icons">notifications</i>
+        </button>
+        <select name="option" id="profile_options">
+            <option value="edit_profile">Edit profile</option>
+            <option value="logout">Logout</option>
+        </select>
+    </header>
+    <main>
+        <section id="snippetInfo">
+            <img src="" alt="profile">
+            <h3 id="snippetName">File</h3>
+            <time datetime="">Feb 12, 2020</time>
+            <p id="snippetLang">C++</p>
+            <button class="editSnippetBtn">
+                Edit
+            </button>
+            <button class="deleteSnippetBtn">
+                Delete
+            </button>
+            <button class="saveSnippetBtn">
+                <i class="material-icons">bookmark</i>
+            </button>
+        </section>
+        <pre class="prettyprint">
+            <code>
+                int x = foo();  /* This is a comment  <span class="nocode">This is not code</span>
+                Continuation of comment */
+              int y = bar();
+            </code>
+        </pre>
+    </main>
+    <footer>
+        c - Snippet Hub
+    </footer>
+</body>
+
+</html>
