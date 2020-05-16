@@ -1,0 +1,35 @@
+/* colors */
+body {
+    --primary-color: #fff3e0;
+    --primary-light-color: #ffffff;
+    --primary-dark-color: #ccc0ae;
+    --secondary-color: #ffab91;
+    --seconadry-light-color: #ffddc1;
+    --secondary-dark-color: #c97b63;
+    --text-color: #000000;
+}
+
+/* to override browser defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* code snippets */
+.snippet-container {
+    padding: 0px 2px;
+    margin: 25px;
+    border: 0.7px solid #d1d1d1;
+    border-radius: 2%;
+    width: 70%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.snippet-description {
+    padding: 5px 50px;
+    
+}
