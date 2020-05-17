@@ -5,6 +5,7 @@
     font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
     font-size: .8em;
     overflow-y: auto;
+    flex: 1;
     border: 0 !important;
 }
 
@@ -26,8 +27,7 @@ ol.linenums > li {
 ol.linenums > li:before {
     content: counter(linesCounter);
     display: inline-block;
-    width: 2.5em;
-    margin-right: 1.5em;
+    width: 7%;
     text-align: right;
     direction: rtl;
     color: #b9b9b9;
