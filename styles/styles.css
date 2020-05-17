@@ -21,7 +21,7 @@ body {
 
 /* page alignment */
 .page {
-    display: flex;    
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
@@ -34,7 +34,6 @@ body {
     height: 65px;
     display: flex;
     justify-content: space-between;
-    flex: initial;
 }
 
 .page-content {
@@ -50,7 +49,7 @@ body {
 
 .page-footer > p {
     color: var(--light-text-color);
-    font-size: 0.75em
+    font-size: 0.75em;
 }
 
 /* common */
@@ -58,8 +57,17 @@ body {
     text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, time {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+time {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
 }
 
 /* code snippets */
@@ -92,11 +100,12 @@ h1, h2, h3, h4, h5, h6, p, a, time {
     height: 60%;
 }
 
-.profile-menu {
+.profile-dropbtn {
     object-fit: cover;
     border-radius: 50%;
     width: auto;
-    height: 45%;
+    height: 35px;
+    cursor: pointer;
 }
 
 /* flex froups */
@@ -121,7 +130,16 @@ h1, h2, h3, h4, h5, h6, p, a, time {
     flex-wrap: nowrap;
 }
 
-.text-group > a, p, img, time, h1, h2, h3, h4, h5, h6 {
+.text-group > a,
+p,
+img,
+time,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0px 8px;
 }
 
@@ -140,9 +158,9 @@ h1, h2, h3, h4, h5, h6, p, a, time {
     outline: none;
     position: relative;
     overflow: hidden;
-  }
-  
-  .primary-btn::after {
+}
+
+.primary-btn::after {
     display: none;
     content: "";
     position: absolute;
@@ -156,42 +174,82 @@ h1, h2, h3, h4, h5, h6, p, a, time {
     /* center the ripple */
     top: 50%;
     left: 50%;
-  
+
     animation: ripple 1s;
     opacity: 0;
-  }
+}
 
-  .primary-btn:focus:not(:active)::after {
+.primary-btn:focus:not(:active)::after {
     display: block;
-  }
+}
 
-  .primary-btn:hover {
-      background-color: var(--secondary-color);
-  }
-  
-  @keyframes ripple {
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+@keyframes ripple {
     from {
-      opacity: 1;
-      transform: scale(0);
+        opacity: 1;
+        transform: scale(0);
     }
     to {
-      opacity: 0;
-      transform: scale(10);
+        opacity: 0;
+        transform: scale(10);
     }
-  }
+}
 
-  .icon-btn {
-      background-color: transparent;
-      border: none;
-      overflow: hidden;
-      outline: none;
-  }
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
 
-  /* forms */
-  .search-field {
-    border: 1px solid #D6D9DC;
-      border-radius: 3px;
-      height: 50%;
-      margin: 1px 5px;
-      padding: 1px 3px;
-  }
+/* forms */
+.search-field {
+    border: 1px solid #d6d9dc;
+    border-radius: 3px;
+    height: 50%;
+    margin: 1px 5px;
+    padding: 1px 3px;
+}
+
+/* dropdown */
+.dropdown {
+    position: relative;
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .profile-dropbtn {
+    background-color: #57524a63;
+}
+
+.site-heading {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 1.35em;
+}
