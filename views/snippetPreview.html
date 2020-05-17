@@ -11,56 +11,55 @@
     <title>Snippet Hub</title>
 </head>
 
-<body>
-    <header id="header">
-        <h2>Snippet Hub</h2>
-        <input type="text" id="search_input" placeholder="Search">
-        <button>
-            <i class="material-icons">add</i>
-        </button>
-        <button>
-            <i class="material-icons">notifications</i>
-        </button>
-        <select name="option" id="profile_options">
-            <option value="edit_profile">Edit profile</option>
-            <option value="logout">Logout</option>
-        </select>
+<body class="page">
+    <header class="page-nav" id="header">
+        <div class="text-group">
+            <h2>Snippet Hub</h2>
+            <input type="text" id="search" placeholder="Search">
+        </div>
+        <div class="row-group">
+            <button class="icon-btn">
+                <i class="material-icons">add</i>
+            </button>
+            <button class="icon-btn">
+                <i class="material-icons">notifications</i>
+            </button>
+            <select name="option" id="profile_options">
+                <option value="edit_profile">Edit profile</option>
+                <option value="logout">Logout</option>
+            </select>
+        </div>
     </header>
-    <main>
-        <section id="snippetInfo">
-            <img src="" alt="profile">
-            <h3 id="snippetName">File</h3>
-            <time datetime="">Feb 12, 2020</time>
-            <p id="snippetLang">C++</p>
-            <button class="editSnippetBtn">
-                Edit
-            </button>
-            <button class="deleteSnippetBtn">
-                Delete
-            </button>
-            <button class="saveSnippetBtn">
-                <i class="material-icons">bookmark</i>
-            </button>
-        </section>
+    <main class="page-content">
         <div class="snippet-container">
+            <section class="snippet-header">
+                <div class="text-group">
+                    <img src="" alt="profile">
+                    <h3 id="snippetName">File</h3>
+                    <time datetime="">Feb 12, 2020</time>
+                    <p id="snippetLang">C++</p>
+                </div>
+                <div class="row-group">
+                    <button class="primary-btn">
+                        Edit
+                    </button>
+                    <button class="primary-btn">
+                        Delete
+                    </button>
+                    <button class="icon-btn">
+                        <i class="material-icons">bookmark</i>
+                    </button>
+                </div>
+            </section>
             <pre class="prettyprint linenums">
-int x = foo();  /* This is a comment 
-Continuation of comment */
-int y = bar();
-int x = foo();  /* This is a comment 
-Continuation of comment */
-int y = bar();
-int x = foo();  /* This is a comment 
-Continuation of comment */
-int y = bar();
-int x = foo();  /* This is a comment 
-Continuation of comment */
-int y = bar();
+    int x = foo();  /* This is a comment 
+    Continuation of comment */
+    int y = bar();
             </pre>
         </div>
     </main>
-    <footer>
-        c - Snippet Hub
+    <footer class="page-footer">
+        <p class="center-text">© Snippet Hub, 2020</p>
     </footer>
 </body>
 
