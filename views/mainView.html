@@ -44,10 +44,10 @@
         </aside>
         <div class="tabs-menu">
             <nav class="tab-panel">
-                <a href="#" class="tab-link" onclick="openTab(event);">Snippets</a>
-                <a href="#" class="tab-link" onclick="openTab(event);">Followers</a>
-                <a href="#" class="tab-link" onclick="openTab(event);">Following</a>
-                <a href="#" class="tab-link" onclick="openTab(event);">Saved</a>
+                <a href="#" class="tab-link" onclick="openTab(event, 'userSnippets');">Snippets</a>
+                <a href="#" class="tab-link" onclick="openTab(event, 'followers');">Followers</a>
+                <a href="#" class="tab-link" onclick="openTab(event, 'following');">Following</a>
+                <a href="#" class="tab-link" onclick="openTab(event, 'savedSnippets');">Saved</a>
             </nav>
             <div id="followers" class="tab-content">
                 <ul class="follow-list">
@@ -73,6 +73,114 @@
                     </li>
                 </ul>
             </div>
+            <div id="following" class="tab-content">
+                <ul class="follow-list">
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">goblinn</h5>
+                        <p class=about-list>iOS developer</p>
+                    </li>
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">coose</h5>
+                        <p class=about-list>54 y.o.</p>
+                    </li>
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">gwyrwch</h5>
+                        <p class=about-list>student at BSUIR</p>
+                    </li>
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">levir</h5>
+                        <p class=about-list></p>
+                    </li>
+                </ul>
+            </div>
+            <div id="following" class="tab-content">
+                <ul class="follow-list">
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">goblinn</h5>
+                        <p class=about-list>iOS developer</p>
+                    </li>
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">coose</h5>
+                        <p class=about-list>54 y.o.</p>
+                    </li>
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">gwyrwch</h5>
+                        <p class=about-list>student at BSUIR</p>
+                    </li>
+                    <li>
+                        <img src="../images/avatar_placeholder.png" alt="avatar">
+                        <h5 class="username">levir</h5>
+                        <p class=about-list></p>
+                    </li>
+                </ul>
+            </div>
+            <div id="userSnippets" class="tab-content">
+                <ul class="snippets">
+                    <li>
+                        <div class="snippet-name">
+                            <h5>initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
+                            </h5>
+                        </div>
+                        <pre class="prettyprint linenums lang-cpp">
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+                        </pre>
+                    </li>
+                    <li>
+                        <div class="snippet-name">
+                            <h5>repeat</h5>
+                        </div>
+                        <pre class="prettyprint linenums lang-cpp">
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+                        </pre>
+                    </li>
+                    <li>
+                        <div class="snippet-name">
+                            <h5>initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
+                            </h5>
+                        </div>
+                        <pre class="prettyprint linenums lang-cpp">
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+                        </pre>
+                    </li>
+                </ul>
+            </div>
+            <div id="savedSnippets" class="tab-content">
+                <ul class="snippets">
+                    <li>
+                        <div class="snippet-name">
+                            <h5>initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
+                            </h5>
+                        </div>
+                        <pre class="prettyprint linenums lang-cpp">
+int x = 42;  /* This is a comment 
+Continuation of comment */
+int y = 7;
+                        </pre>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
     <footer class="page-footer">
@@ -81,13 +189,19 @@
 
 </body>
 <script>
-    function openTab(event) {
-      var i, tablinks;
-      tablinks = document.getElementsByClassName("tab-link");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" current", "");
-      }
-      event.currentTarget.className += " current";
+    function openTab(event, tabId) {
+        var i, tabLinks, tabContent;
+        tabLinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].className = tabLinks[i].className.replace(" current", "");
+        }
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        event.currentTarget.className += " current";
+        document.getElementById(tabId).style.display = "block";
     }
 </script>
+
 </html>

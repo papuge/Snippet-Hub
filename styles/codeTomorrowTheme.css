@@ -27,7 +27,8 @@ ol.linenums > li {
 ol.linenums > li:before {
     content: counter(linesCounter);
     display: inline-block;
-    width: 7%;
+    width: 25px;
+    margin: 0 10px 0 0;
     text-align: right;
     direction: rtl;
     color: #b9b9b9;

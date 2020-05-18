@@ -87,7 +87,7 @@ time {
     margin: 30px auto;
     border: 1.2px solid #d1d1d1;
     border-radius: var(--snippet-border-radius);
-    width: 86%;
+    width: 86vw;
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -120,6 +120,7 @@ time {
 }
 
 .sidebar-avatar {
+    margin: 15px 0px;
     object-fit: cover;
     border-radius: 50%;
     width: auto;
@@ -181,6 +182,11 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#aboutProfile {
+    text-align: center;
+    margin: 15px 0px;
 }
 
 /* buttons */
@@ -335,7 +341,7 @@ ul.follow-list > li > img {
     display: block;
     width: auto;
     height: 48px;
-    margin: 8px 20px 8px 5%;
+    margin: 8px 20px 8px 10%;
     border-radius: 50%;
 }
 
@@ -349,6 +355,29 @@ ul.follow-list > li > img {
     color: var(--light-text-color);
     font-size: 0.85em;
     overflow: hidden;
+}
+
+ul.snippets {
+    list-style-type: none;
+}
+
+ul.snippets > li {
+    margin: 35px 5px 25px 10%;
+    border: 1.2px solid #d1d1d1;
+    border-radius: var(--snippet-border-radius);
+    width: 60vw;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.snippet-name {
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    border-radius: var(--snippet-border-radius) var(--snippet-border-radius) 0 0;
+    height: 30px;
+    overflow-y: hidden;
 }
 
 .site-heading {
@@ -369,5 +398,10 @@ ul.follow-list > li > img {
     .main-view-flex {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    ul.snippets > li {
+        width: 80vw;
+        margin: 20px auto;
     }
 }
