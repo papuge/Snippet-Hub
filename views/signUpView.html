@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-        <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
-        <link rel="stylesheet" href="../styles/styles.css">
-        <title>Snippet Hub</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Snippet Hub</title>
+</head>
 
 <body class="page">
     <header class="page-nav" id="header">
@@ -36,30 +36,40 @@
             </div>
         </div>
     </header>
-    <form action="" method="post">
-        <fieldset>
-            <legend>Sign Up</legend>
+    <form class="login-form" action="" method="post">
+        <h3 class="mv-20">Sign Up</h3>
 
-            <label for="username">Username</label>
-            <input type="text" name="username" id="">
+            <div class="form-field">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="" placeholder="Username">
+            </div>
 
-            <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="">
-            
-            <label for="lastName">Last name</label>
-            <input type="text" name="lastName" id="">
+            <div class="form-field">
+                <label for="firstName">First name</label>
+                <input type="text" name="firstName" id="" placeholder="First name">
+            </div>
 
-            <label for="email">Email</label>
-            <input type="email" name="email" id="">
+            <div class="form-field">
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" id="" placeholder="Last name">
+            </div>
 
-            <label for="password">Password</label>
-            <input type="password" name="password" id="">
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="" placeholder="Email">
+            </div>
 
-            <label for="confirmPassword">Password again</label>
-            <input type="password" name="confirmPassword" id="">
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="" placeholder="Password">
+            </div>
 
-            <input type="submit" value="Sign Up">
-        </fieldset>
+            <div class="form-field">
+                <label for="confirmPassword">Password again</label>
+                <input type="password" name="confirmPassword" id="" placeholder="Confirm password">
+            </div>
+
+            <button type="submit" class="primary-btn form-btn">Sign up</button>
     </form>
     <footer class="page-footer">
         <p class="center-text">© Snippet Hub, 2020</p>

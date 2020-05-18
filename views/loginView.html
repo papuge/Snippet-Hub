@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-        <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
-        <link rel="stylesheet" href="../styles/styles.css">
-        <title>Snippet Hub</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Snippet Hub</title>
+</head>
 
 <body class="page">
     <header class="page-nav" id="header">
@@ -36,15 +36,17 @@
             </div>
         </div>
     </header>
-    <form action="" method="post">
-        <fieldset>
-            <legend>Login</legend>
+    <form action="" method="post" class="login-form">
+        <h3 class="mv-20">Login</h3>
+        <div class="form-field">
             <label for="username">Username</label>
-            <input type="text" name="username" id="">
+            <input type="text" name="username" id="" placeholder="Username">
+        </div>
+        <div class="form-field">
             <label for="password">Password</label>
-            <input type="password" name="password" id="">
-            <input type="submit" value="Login">
-        </fieldset>
+            <input type="password" name="password" id="" placeholder="Password">
+        </div>
+        <button type="submit" class="primary-btn form-btn">Login</button>
     </form>
     <footer class="page-footer">
         <p class="center-text">© Snippet Hub, 2020</p>
