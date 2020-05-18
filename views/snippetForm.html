@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-    <title>Snippet Hub</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
+        <link rel="stylesheet" href="../styles/styles.css">
+        <title>Snippet Hub</title>
+    </head>
 
-<body>
-    <header id="header">
-        <h2>Snippet Hub</h2>
-        <input type="text" id="search_input" placeholder="Search">
-        <button>
-            <i class="material-icons">add</i>
-        </button>
-        <button>
-            <i class="material-icons">notifications</i>
-        </button>
-        <select name="option" id="profile_options">
-            <option value="edit_profile">Edit profile</option>
-            <option value="logout">Logout</option>
-        </select>
+<body class="page"> 
+    <header class="page-nav" id="header">
+        <div class="text-group">
+            <h2 class="site-heading">Snippet Hub</h2>
+            <button class="icon-btn" id="searchBtn">
+                <i class="material-icons">search</i>
+            </button>
+            <input type="text" class="search-field" id="searchField" placeholder="Search">
+        </div>
+        <div class="row-group">
+            <button class="icon-btn">
+                <i class="material-icons">add</i>
+            </button>
+            <button class="icon-btn">
+                <i class="material-icons">notifications</i>
+            </button>
+            <div class="dropdown">
+                <img src="../images/avatar_placeholder.png" class="profile-dropbtn" alt="avatar">
+                <div class="dropdown-content">
+                    <a href="#">Edit profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
-        <form method="post">
-            <input type="text" name="snippetName" id="snippetName">
-            <select name="lang" id="snippetLang">
-                <option value="">C++</option>
-                <option value="">Java</option>
-                <option value="">Python</option>
-            </select>
-            <hr>
-            <textarea name="" id="" cols="125" rows="35" placeholder="Snippet here">
-            </textarea>
-            <input type="submit" value="Create">
+        <form class="snippet-form" method="post">
+            <h3 class="mb-20">New snippet</h3>
+            <div class="snippet-form-header">
+                <input type="text" name="snippetName" id="snippetName" placeholder="Snippet name w/o extension">
+                <select name="lang" id="snippetLang">
+                    <option value="">C++</option>
+                    <option value="">Java</option>
+                    <option value="">Python</option>
+                </select>
+            </div>
+            <textarea name="" id="" placeholder="Snippet here" wrap="off"></textarea>
+            <button class="primary-btn form-btn" type="submit">Create</button>
         </form>
     </main>
-    <footer>
-        c - Snippet Hub
+    <footer class="page-footer">
+        <p class="center-text">© Snippet Hub, 2020</p>
     </footer>
 </body>
 
