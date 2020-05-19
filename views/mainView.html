@@ -13,14 +13,14 @@
 
 <body class="page">
     <header class="page-nav" id="header">
-        <div class="text-group">
+        <div class="start-flex-group">
             <h2 class="site-heading">Snippet Hub</h2>
             <button class="icon-btn" id="searchBtn">
                 <i class="material-icons">search</i>
             </button>
             <input type="text" class="search-field" id="searchField" placeholder="Search">
         </div>
-        <div class="row-group">
+        <div class="end-flex-group">
             <button class="icon-btn">
                 <i class="material-icons">add</i>
             </button>
@@ -36,13 +36,13 @@
             </div>
         </div>
     </header>
-    <main class="page-content main-view-flex">
+    <div class="page-content profile-view-flex">
         <aside class="sidebar">
             <img src="../images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar">
             <h3 id="username">Username</h3>
             <p id="aboutProfile">Smth about lorem</p>
         </aside>
-        <div class="tabs-menu">
+        <main class="tabs-menu">
             <nav class="tab-panel">
                 <a href="#" class="tab-link" onclick="openTab(event, 'userSnippets');">Snippets</a>
                 <a href="#" class="tab-link" onclick="openTab(event, 'followers');">Followers</a>
@@ -124,9 +124,11 @@
             <div id="userSnippets" class="tab-content">
                 <ul class="snippets">
                     <li>
-                        <div class="snippet-name">
-                            <h5>initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
+                        <div class="snippet-demo-header">
+                            <h5 class="snippet-demo-name">
+                                initnitnitnitnitnitnit
                             </h5>
+                            <p class="snippet-demo-lang">C++</p>
                         </div>
                         <pre class="prettyprint linenums lang-cpp">
 int x = 42;  /* This is a comment 
@@ -135,8 +137,11 @@ int y = 7;
                         </pre>
                     </li>
                     <li>
-                        <div class="snippet-name">
-                            <h5>repeat</h5>
+                        <div class="snippet-demo-header">
+                            <h5 class="snippet-demo-name">
+                                repeat
+                            </h5>
+                            <p class="snippet-demo-lang">C++</p>
                         </div>
                         <pre class="prettyprint linenums lang-cpp">
 int x = 42;  /* This is a comment 
@@ -154,9 +159,11 @@ int y = 7;
                         </pre>
                     </li>
                     <li>
-                        <div class="snippet-name">
-                            <h5>initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
+                        <div class="snippet-demo-header">
+                            <h5 class="snippet-demo-name">
+                                initnitnitnitnitnitnitn
                             </h5>
+                            <p class="snippet-demo-lang">C++</p>
                         </div>
                         <pre class="prettyprint linenums lang-cpp">
 int x = 42;  /* This is a comment 
@@ -169,9 +176,11 @@ int y = 7;
             <div id="savedSnippets" class="tab-content">
                 <ul class="snippets">
                     <li>
-                        <div class="snippet-name">
-                            <h5>initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
+                        <div class="snippet-demo-header">
+                            <h5 class="snippet-demo-name">
+                                initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
                             </h5>
+                            <p class="snippet-demo-lang">C++</p>
                         </div>
                         <pre class="prettyprint linenums lang-cpp">
 int x = 42;  /* This is a comment 
@@ -181,8 +190,8 @@ int y = 7;
                     </li>
                 </ul>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
     <footer class="page-footer">
         <p class="center-text">© Snippet Hub, 2020</p>
     </footer>
