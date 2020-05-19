@@ -10,6 +10,7 @@ body {
     --light-text-color: #696969;
 
     --snippet-border-radius: 5px;
+    --snippet-frame-border: 1px;
 }
 
 /* to override browser defaults */
@@ -33,6 +34,7 @@ body {
     background-color: var(--primary-dark-color);
     height: 65px;
     display: flex;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -88,8 +90,7 @@ input[type='password'] {
 .info-text {
     color: var(--secondary-dark-color);
     display: block;
-    overflow-y: scroll;
-    margin: 4% 10% 0%;
+    margin: 4% 10% 0;
 }
 
 #dateText {
@@ -100,9 +101,10 @@ input[type='password'] {
 /* code snippets */
 .snippet-container {
     margin: 30px auto;
-    border: 1.2px solid #d1d1d1;
+    border: var(--snippet-frame-border) solid #d1d1d1;
     border-radius: var(--snippet-border-radius);
     width: 86vw;
+    min-width: 80vw;
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -143,42 +145,53 @@ input[type='password'] {
 }
 
 /* flex froups */
-.row-group {
+.end-flex-group {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
+    flex: 1;
 }
 
-.row-group > button {
-    margin-left: 10px;
+.end-flex-group > button {
+    margin-left: 0px;
 }
 
-.row-group:last-child {
+.end-flex-group:last-child {
     margin: 0;
 }
 
-.text-group {
+.start-flex-group {
     display: flex;
     justify-content: start;
     align-items: center;
-    flex-wrap: nowrap;
 }
 
-.text-group > a,
-p,
-img,
-time,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0px 8px;
+.start-flex-group > a,
+.start-flex-group > p,
+.start-flex-group > h2,
+.end-flex-group > img,
+.end-flex-group > button {
+    margin-right: 3%;
 }
 
-.main-view-flex {
+.start-flex-group > img {
+    margin: 0 7px;
+}
+
+.profile-view-flex {
     display: flex;
+    flex-direction: row;
+}
+
+.snippet-demo-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    border-radius: var(--snippet-border-radius) var(--snippet-border-radius) 0 0;
+    height: 30px;
 }
 
 .tabs-menu {
@@ -199,6 +212,7 @@ h6 {
     align-items: center;
 }
 
+/* specific */
 #aboutProfile {
     text-align: center;
     margin: 15px 0px;
@@ -212,7 +226,7 @@ h6 {
     border-radius: 5%;
     text-align: center;
     padding: 6px 6px;
-    min-width: 7vw;
+    min-width: 9vw;
     font-size: 13px;
     font-family: sans-serif;
     color: black;
@@ -279,7 +293,7 @@ h6 {
     height: 50%;
     width: 190px;
     margin: 1px 5px;
-    padding: 1px 3px;
+    padding: 1px 4px;
 }
 
 .snippet-form {
@@ -353,6 +367,7 @@ h6 {
     justify-content: start;
     align-items: center;
     width: 50%;
+    max-width: 420px;
     margin: 75px auto;
 }
 
@@ -441,11 +456,11 @@ input[type='password'] {
     margin: auto;
     padding: 4px 7px;
     transition: 0.2s;
+    border-bottom: 3px solid transparent;
 }
 
 .tab-panel .tab-link:hover:not(.current) {
     border-bottom: 3px solid var(--light-text-color);
-    /* padding: 4px 7px 1px; */
 }
 
 .tab-panel .tab-link.current {
@@ -490,7 +505,7 @@ ul.snippets {
 
 ul.snippets > li {
     margin: 35px 5px 25px 10%;
-    border: 1.2px solid #d1d1d1;
+    border: var(--snippet-frame-border) solid #d1d1d1;
     border-radius: var(--snippet-border-radius);
     width: 60vw;
     height: 250px;
@@ -499,12 +514,18 @@ ul.snippets > li {
     align-items: stretch;
 }
 
-.snippet-name {
-    padding: 5px 10px;
-    background-color: var(--primary-color);
-    border-radius: var(--snippet-border-radius) var(--snippet-border-radius) 0 0;
-    height: 30px;
-    overflow-y: hidden;
+.snippet-demo-name {
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.snippet-demo-lang {
+    width: 20%;
+    min-width: 10vw;
+    text-align: end;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .site-heading {
@@ -512,7 +533,7 @@ ul.snippets > li {
     font-size: 1.35em;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 610px) {
     #searchField {
         display: none;
     }
@@ -521,7 +542,7 @@ ul.snippets > li {
         display: block;
     }
 
-    .main-view-flex {
+    .profile-view-flex {
         flex-direction: column;
         align-items: stretch;
     }
