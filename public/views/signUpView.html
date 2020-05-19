@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Snippet Hub</title>
+</head>
+
+<body class="page">
+    <header class="page-nav" id="header">
+        <div class="start-flex-group">
+            <h2 class="site-heading">Snippet Hub</h2>
+            <button class="icon-btn" id="searchBtn">
+                <i class="material-icons">search</i>
+            </button>
+            <input type="text" class="search-field" id="searchField" placeholder="Search">
+        </div>
+        <div class="end-flex-group">
+            <button class="icon-btn">
+                <i class="material-icons">add</i>
+            </button>
+            <button class="icon-btn">
+                <i class="material-icons">notifications</i>
+            </button>
+            <div class="dropdown">
+                <img src="../images/avatar_placeholder.png" class="profile-dropbtn" alt="avatar">
+                <div class="dropdown-content">
+                    <a href="#">Edit profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <form class="login-form" action="" method="post">
+        <h3 class="mv-20">Sign Up</h3>
+
+            <div class="form-field">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="" placeholder="Username">
+            </div>
+
+            <div class="form-field">
+                <label for="firstName">First name</label>
+                <input type="text" name="firstName" id="" placeholder="First name">
+            </div>
+
+            <div class="form-field">
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" id="" placeholder="Last name">
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="" placeholder="Email">
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="" placeholder="Password">
+            </div>
+
+            <div class="form-field">
+                <label for="confirmPassword">Password again</label>
+                <input type="password" name="confirmPassword" id="" placeholder="Confirm password">
+            </div>
+
+            <button type="submit" class="primary-btn form-btn">Sign up</button>
+    </form>
+    <footer class="page-footer">
+        <p class="center-text">© Snippet Hub, 2020</p>
+    </footer>
+</body>
+
+</html>
