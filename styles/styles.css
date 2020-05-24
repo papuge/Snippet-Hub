@@ -281,6 +281,11 @@ input[type='password'] {
     cursor: pointer;
 }
 
+.scale-btn:active {
+    transform: scale(2);
+    transition: all 0.4s linear;
+}
+
 .form-btn {
     align-self: center;
     min-width: 12vw;
@@ -603,13 +608,13 @@ ul.snippets > li {
 
     .snippet-form .access-fieldset {
         margin-bottom: 10px;
-      }
-      .snippet-form .access-fieldset legend {
+    }
+    .snippet-form .access-fieldset legend {
         width: 100px;
         float: none;
         margin-bottom: 15px;
-      }
-      .snippet-form .access-fieldset label {
+    }
+    .snippet-form .access-fieldset label {
         padding: 0 10px 0 5px;
     }
 }
