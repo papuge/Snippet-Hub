@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-        <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
-        <link rel="stylesheet" href="../styles/styles.css">
-        <title>Snippet Hub</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="stylesheet" href="../styles/codeTomorrowTheme.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Snippet Hub</title>
+</head>
 
 <body class="page">
     <header class="page-nav" id="header">
         <div class="start-flex-group">
             <h2 class="site-heading">Snippet Hub</h2>
-            <button class="icon-btn" id="searchBtn">
-                <i class="material-icons">search</i>
-            </button>
-            <input type="text" class="search-field" id="searchField" placeholder="Search">
+            <form class="search-form" id="searchForm">
+                <button type="submit" class="icon-btn scale-btn" id="searchBtn">
+                    <i class="material-icons">search</i>
+                </button>
+                <input type="search" class="search-field" id="searchField" placeholder="Search">
+            </form>
         </div>
         <div class="end-flex-group">
-            <button class="icon-btn">
+            <button class="icon-btn scale-btn">
                 <i class="material-icons">add</i>
             </button>
-            <button class="icon-btn">
+            <button class="icon-btn scale-btn">
                 <i class="material-icons">notifications</i>
             </button>
             <div class="dropdown">
@@ -37,36 +39,30 @@
         </div>
     </header>
     <main>
-        <form class="profile-form" action="" method="post">
-                <h3 class="mb-20">Edit profile</h3>
+        <form class="profile-form" action="" method="post" id="profileForm">
+            <h3 class="mb-20">Edit profile</h3>
 
-                <div class="form-field">
-                    <label for="avatar">Profile image</label>
-                    <input type="file" name="avatar"></input>
-                </div>
-    
-                <div class="form-field">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="" placeholder="Username">
-                </div>
-    
-                <div class="form-field">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="" placeholder="Email">
-                </div>
+            <div class="form-field">
+                <label for="avatar">Profile image</label>
+                <input type="file" name="avatar"></input>
+            </div>
 
-                
-                <div class="form-field">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="" placeholder="Password">
-                </div>
-    
-                <div class="form-field">
-                    <label for="about">About you</label>
-                    <input type="text" name="about" id="" placeholder="Short tell about you">
-                </div>
-    
-                <button type="submit" class="primary-btn form-btn">Save</button>
+            <div class="form-field">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="" placeholder="Username" maxlength="20">
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="" placeholder="Email">
+            </div>
+
+            <div class="form-field">
+                <label for="about">About you</label>
+                <input type="text" name="about" id="" placeholder="Short tell about you" maxlength="250">
+            </div>
+
+            <button type="submit" class="primary-btn form-btn">Save</button>
         </form>
     </main>
     <footer class="page-footer">
