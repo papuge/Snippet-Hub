@@ -21,10 +21,10 @@
             <input type="text" class="search-field" id="searchField" placeholder="Search">
         </div>
         <div class="end-flex-group">
-            <button class="icon-btn">
+            <button class="icon-btn scale-btn">
                 <i class="material-icons">add</i>
             </button>
-            <button class="icon-btn">
+            <button class="icon-btn scale-btn">
                 <i class="material-icons">notifications</i>
             </button>
             <div class="dropdown">
@@ -52,8 +52,8 @@
                     <button class="primary-btn">
                         Delete
                     </button>
-                    <button class="btn icon-btn">
-                        <i class="material-icons">bookmark</i>
+                    <button class="btn icon-btn" id="saveBtn">
+                        <i class="material-icons" id="saveStateIc">bookmark</i>
                     </button>
                 </div>
             </section>
@@ -76,5 +76,16 @@ int main() {
         <p class="center-text">© Snippet Hub, 2020</p>
     </footer>
 </body>
+
+<script>
+    document.getElementById("saveBtn").addEventListener("click", function () {
+        let state = document.getElementById("saveStateIc").innerHTML;
+        if (state == "bookmark") {
+            document.getElementById("saveStateIc").innerHTML = "bookmark_border";
+        } else {
+            document.getElementById("saveStateIc").innerHTML = "bookmark";
+        }
+    });
+</script>
 
 </html>
