@@ -1,3 +1,5 @@
+import Auth from "../../scripts/auth.js"
+
 const Navbar = {
     render: async () =>
      /*html*/ `
@@ -10,7 +12,7 @@ const Navbar = {
             <input type="search" class="search-field" id="searchField" placeholder="Search">
         </form>
     </div>
-    <div class="end-flex-group">
+    <div class="end-flex-group" id="userMenu">
         <a href="#/newSnippet" class="scale-btn">
             <i class="material-icons" style="color: black;">add</i>
         </a>
@@ -25,11 +27,22 @@ const Navbar = {
             </div>
         </div>
     </div>
+    <div class="end-flex-group" id="loginMenu">
+        <p class="black-link">Login</p>
+    </div>
     `,
 
     afterRender: async () => {
 
+        let userMenu = document.getElementById("userMenu");
+        let loginMenu = document.getElementById("loginMenu");
+
+        if (Auth.user == null) {
+            userMenu.style.display = "none";
+        } else {
+            loginMenu.style.display = "none";
+        }
     }
 }
 
-export default Navbar;
+export default Navbar

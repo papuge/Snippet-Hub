@@ -55,4 +55,4 @@ int main() {
     }
 }
 
-export default Snippet;
+export default Snippet
