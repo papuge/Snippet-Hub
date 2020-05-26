@@ -17,6 +17,16 @@ const Utils = {
     renderPage: async (container, content) => {
         container.innerHTML = await content.render();
         await content.afterRender();
+    },
+
+    loadScript: (url) => {
+        var head = document.head;
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = url;
+
+        head.appendChild(script);
     }
 }
 
