@@ -1,7 +1,7 @@
 const Utils = {
     parseUrl: () => {
         let url = location.hash.slice(1).toLowerCase() || '/';
-        let r = url.split("/")
+        let r = url.split("/");
         let request = {
             resource: null,
             id: null,
@@ -20,13 +20,17 @@ const Utils = {
     },
 
     loadScript: (url) => {
-        var head = document.head;
+        let head = document.head;
 
-        var script = document.createElement("script");
+        let script = document.createElement("script");
         script.type = "text/javascript";
         script.src = url;
 
         head.appendChild(script);
+    },
+
+    navigateTo: (url) => {
+        window.location.href = url;
     }
 }
 

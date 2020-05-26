@@ -15,13 +15,13 @@ const NewSnippet = {
                 <input type="text" name="snippetName" id="snippetName" placeholder="Snippet name w/o extension" required maxlength="120">
                 <select name="lang" id="snippetLang">
                     <option value="">Bash</option>
-                    <option value="">JavaScript</option>
-                    <option value="">Java</option>
-                    <option value="">HTML</option>
                     <option value="">C</option>
                     <option value="">C++</option>
                     <option value="">C#</option>
                     <option value="">CSS</option>
+                    <option value="">JavaScript</option>
+                    <option value="">Java</option>
+                    <option value="">HTML</option>
                     <option value="">Python</option>
                     <option value="">Rust</option>
                     <option value="">XML</option>
@@ -38,4 +38,4 @@ const NewSnippet = {
     }
 }
 
-export default NewSnippet;
+export default NewSnippet

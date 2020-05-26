@@ -67,6 +67,21 @@ body {
     margin: 20px 0px;
 }
 
+.danger-text {
+    color: red;
+    font-weight: bolder;
+}
+
+.black-link {
+    color: black;
+    text-decoration: none;
+    margin-right: 2%;
+}
+
+.black-link:hover {
+    text-decoration: underline;
+}
+
 h1,
 h2,
 h3,
@@ -504,14 +519,16 @@ input[type='password'] {
 
 .tab-panel .tab-link {
     color: var(--light-text-color);
-    border-radius: 5px 5px 0 0;
-    text-decoration: none;
     text-align: center;
+    font-size: 1em;
     cursor: pointer;
     margin: auto;
     padding: 4px 7px;
     transition: 0.2s;
+    border: none;
     border-bottom: 3px solid transparent;
+    outline: none;
+    background-color: transparent;
 }
 
 .tab-panel .tab-link:hover:not(.current) {

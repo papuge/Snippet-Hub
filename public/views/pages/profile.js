@@ -4,6 +4,12 @@ const Profile = {
     render: async () =>
      /*html*/ `
      <div class="page-content profile-view-flex">
+     <form class="mobile-search-form" id="mobileSearchForm">
+        <button type="submit" class="icon-btn scale-btn" id="searchBtn">
+            <i class="material-icons">search</i>
+        </button>
+        <input type="search" class="search-field" id="searchField" placeholder="Search">
+    </form>
      <aside class="sidebar">
          <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar">
          <h3 id="username">Username</h3>
@@ -12,10 +18,10 @@ const Profile = {
      </aside>
      <main class="tabs-menu">
          <nav class="tab-panel">
-            <a href="#" class="tab-link current" id="userSnippetsTab">Snippets</a>
-            <a href="#" class="tab-link" id="followersTab">Followers</a>
-            <a href="#" class="tab-link" id="followingTab">Following</a>
-            <a href="#" class="tab-link" id="savedSnippetsTab">Saved</a>
+            <button class="tab-link current" id="userSnippetsTab">Snippets</button>
+            <button class="tab-link" id="followersTab">Followers</button>
+            <button class="tab-link" id="followingTab">Following</button>
+            <button class="tab-link" id="savedSnippetsTab">Saved</button>
          </nav>
          <div id="followers" class="tab-content">
              <ul class="follow-list">
@@ -191,4 +197,4 @@ int y = 7;
     }
 }
 
-export default Profile;
+export default Profile
