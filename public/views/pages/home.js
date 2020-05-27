@@ -1,4 +1,4 @@
-import Utils from "../../scripts/utils.js";
+import Utils from "../../scripts/utils.js"
 
 const Home = {
     render: async () =>
@@ -26,7 +26,7 @@ const Home = {
              <ul class="follow-list">
                  <li>
                      <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">coose</h5>
+                     <a href="#/profile/:id" class="username black-link">coose</a>
                      <p class=about-list>54 y.o.</p>
                  </li>
                  <li>
@@ -96,7 +96,7 @@ const Home = {
          </div>
          <div id="userSnippets" class="tab-content">
              <ul class="snippets">
-                 <li>
+                 <li id="snippet1">
                      <div class="snippet-demo-header">
                          <h5 class="snippet-demo-name">
                              initnitnitnitnitnitnit
@@ -191,6 +191,10 @@ int y = 7;
             tabContent[i].style.display = "none";
         }
         document.getElementById("userSnippets").style.display = "block";
+
+        document.getElementById("snippet1").addEventListener("click", (event) => {
+            Utils.navigateTo("#/snippet/1");
+        });
         
         Utils.loadScript("https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js");
     }

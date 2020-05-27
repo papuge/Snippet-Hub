@@ -5,8 +5,7 @@ const Error404 = {
     <p class="center-text mv-20">You've found a glitch in a matrix</p>
     `,
 
-    afterRender: async () => {
-    }
+    afterRender: async () => { }
 }
 
 export default Error404

@@ -1,9 +1,10 @@
 import Utils from "./utils.js";
 
 let Auth = {
-    logIn: (username, password) => {
+
+    logIn: (email, password) => {
         // TODO find email from username
-        firebase.auth().signInWithEmailAndPassword(username, password).then(() => {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
 
             Utils.navigateTo("/");
 
@@ -12,30 +13,51 @@ let Auth = {
             console.log(error.code);
             console.log(error.message);
             alert("Login wasn't successful");
+
         });
     },
 
-    signUp: ({username, email, firstName, lastName, password}) => {
-        // TODO() check unique user id
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+    signUp: ({ username, firstName, lastName, email, password }) => {
 
-            // TODO fill info for user
+        firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
 
-        }).catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-          });
-    },
+            firebase.database().ref(`users/${result.user.uid}`).set({
+                username: username,
+                firstName: firstName,
+                lastName: lastName,
+                photoUrlPath: "./images/avatar_placeholder.png"
+            }, function (error) {
+                if (error) {
+                    console.log(error.message);
+                } else {
+                    Utils.navigateTo("/");
+                }
+            });
 
-    logout: () => {
-        firebase.auth().signOut().catch(function (error) {
+        }).catch(function (error) {
 
             console.log(error.code);
             console.log(error.message);
+            alert("Sign up failed, please, try again");
+
         });
+
+        Auth.user
     },
 
-    user: firebase.auth().currentUser
+    logout: () => {
+        firebase.auth().signOut().then(() => {
+
+            Utils.navigateTo("/");
+            
+        }).catch(function (error) {
+
+            console.log(error.code);
+            console.log(error.message);
+
+        });
+    }
 }
+
 
 export default Auth
