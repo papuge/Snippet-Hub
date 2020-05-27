@@ -4,25 +4,37 @@
 <head>
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-  <title>Snippet Hub</title>
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- library for displaing snippets -->
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="./styles/codeTomorrowTheme.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>Snippet Hub</title>
+
   <!-- update the version number as needed -->
   <script defer src="/__/firebase/7.14.3/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
   <script defer src="/__/firebase/7.14.3/firebase-auth.js"></script>
   <script defer src="/__/firebase/7.14.3/firebase-database.js"></script>
-  <script defer src="/__/firebase/7.14.3/firebase-messaging.js"></script>
-  <script defer src="/__/firebase/7.14.3/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
 
+  <script type="module" src="./app.js"></script>
+
 </head>
 
-<body>
-  <h2>Snippet Hub</h2>
+<body class="page">
+
+  <header class="page-nav" id="pageHeader"></header>
+
+  <section id="mobileSearch"></section>
+
+  <div id="pageContent">
+    <article class="center-text mv-20">Wait for it...</article>
+  </div>
+
+  <footer class="page-footer" id="pageFooter"></footer>
+
 </body>
 
 </html>
