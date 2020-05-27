@@ -7,8 +7,8 @@ const Login = {
         <form action="" method="post" class="login-form" id="loginForm">
             <h3 class="mv-20">Login</h3>
             <div class="form-field">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="usernameInput" placeholder="Username" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="emailInput" placeholder="Email" required>
             </div>
             <div class="form-field">
                 <label for="password">Password</label>
@@ -22,11 +22,11 @@ const Login = {
     afterRender: async() => {
 
         document.getElementById("loginForm").addEventListener("submit", (event) => {
-            
-            let username = document.getElementById("usernameInput").value;
+
+            let email = document.getElementById("emailInput").value;
             let password = document.getElementById("passwordInput").value;
 
-            Auth.logIn(username, password);
+            Auth.logIn(email, password);
 
             event.preventDefault();
             

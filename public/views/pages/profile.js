@@ -1,4 +1,4 @@
-import Utils from "../../scripts/utils.js";
+import Utils from "../../scripts/utils.js"
 
 const Profile = {
     render: async () =>
