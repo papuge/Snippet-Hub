@@ -4,6 +4,5 @@ import Utils from "./utils.js";
 
 let Access = {
     checkRights: (url) => {
-        if
     }
 }

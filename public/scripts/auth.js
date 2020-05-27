@@ -3,7 +3,6 @@ import Utils from "./utils.js";
 let Auth = {
 
     logIn: (email, password) => {
-        // TODO find email from username
         firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
 
             Utils.navigateTo("/");
@@ -41,15 +40,13 @@ let Auth = {
             alert("Sign up failed, please, try again");
 
         });
-
-        Auth.user
     },
 
     logout: () => {
         firebase.auth().signOut().then(() => {
 
             Utils.navigateTo("/");
-            
+
         }).catch(function (error) {
 
             console.log(error.code);

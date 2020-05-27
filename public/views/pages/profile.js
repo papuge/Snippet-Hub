@@ -3,13 +3,13 @@ import Utils from "../../scripts/utils.js"
 const Profile = {
     render: async () =>
      /*html*/ `
-     <div class="page-content profile-view-flex">
      <form class="mobile-search-form" id="mobileSearchForm">
         <button type="submit" class="icon-btn scale-btn" id="searchBtn">
             <i class="material-icons">search</i>
         </button>
         <input type="search" class="search-field" id="searchField" placeholder="Search">
     </form>
+     <div class="page-content profile-view-flex">
      <aside class="sidebar">
          <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar">
          <h3 id="username">Username</h3>
@@ -168,7 +168,7 @@ int y = 7;
  </div>
     `,
 
-    afterRender: async() => {
+    afterRender: async () => {
         function openTab(event, tabId) {
             let tabLinks = document.getElementsByClassName("tab-link");
             for (let i = 0; i < tabLinks.length; i++) {
@@ -192,7 +192,7 @@ int y = 7;
             tabContent[i].style.display = "none";
         }
         document.getElementById("userSnippets").style.display = "block";
-        
+
         Utils.loadScript("https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js");
     }
 }
