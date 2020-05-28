@@ -1,12 +1,15 @@
 import Utils from "../../scripts/utils.js"
+import DataControl from "../../scripts/dataControl.js"
+
 
 const SnippetsList = {
     render: async () => {
 
+        let snippets = await getSnippets();
+
         let view = /*html*/ `
         <ul class="snippets">
-            ${
-                snippets.map(s =>
+            ${ snippets.map(s =>
                     /*html*/`
                     <li id="snippet1">
                         <div class="snippet-demo-header">
@@ -33,10 +36,19 @@ const SnippetsList = {
     afterRender: async () => { }
 }
 
-function getSnippets() {
-    return [];
-}
+async function getSnippets() {
 
-let snippets = getSnippets();
+    let request = Utils.parseUrl();
+
+    // home page
+    if (request.resource == null) {
+    
+        return await DataControl.getSnippets(firebase.auth().currentUser, true);
+
+    } else {
+
+        return await DataControl.getSnippets(request.id, false);
+    }
+}
 
 export default SnippetsList

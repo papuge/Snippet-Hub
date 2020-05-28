@@ -232,12 +232,19 @@ input[type='password'] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 25%;
+}
+
+.sidebar h3,
+.sidebar p {
+    overflow-wrap: break-word;
 }
 
 /* specific */
 #aboutProfile {
     text-align: center;
     margin: 15px 0px;
+    overflow-wrap: break-word;
 }
 
 /* buttons */
@@ -641,6 +648,7 @@ ul.snippets > li {
 
     .sidebar {
         margin: 4% 4%;
+        width: 100%;
     }
 
     ul.snippets > li {

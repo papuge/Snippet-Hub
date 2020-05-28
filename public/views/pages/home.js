@@ -3,6 +3,7 @@ import FollowersList from "../components/followersList.js"
 import FollowingList from "../components/followingList.js"
 import SnippetsList from "../components/snippetsList.js"
 import SavedSnippetsList from "../components/savedSnippetsList.js"
+import DataControl from "../../scripts/dataControl.js"
 
 
 const Home = {
@@ -16,9 +17,9 @@ const Home = {
     </form>
      <div class="page-content profile-view-flex">
      <aside class="sidebar">
-         <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar">
-         <h3 id="username">Username</h3>
-         <p id="aboutProfile">Smth about lorem</p>
+         <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar" id="profilePhoto">
+         <h3 id="username"></h3>
+         <p id="aboutProfile"></p>
      </aside>
      <main class="tabs-menu">
          <nav class="tab-panel">
@@ -35,7 +36,7 @@ const Home = {
  </div>
     `,
 
-    afterRender: async() => {
+    afterRender: async () => {
         function openTab(event, tabId) {
             let tabLinks = document.getElementsByClassName("tab-link");
             for (let i = 0; i < tabLinks.length; i++) {
@@ -54,11 +55,6 @@ const Home = {
         const following = document.getElementById("following");
         const savedSnippets = document.getElementById("savedSnippets");
 
-        Utils.renderPage(userSnippets, SnippetsList);
-        Utils.renderPage(followers, FollowersList);
-        Utils.renderPage(following, FollowingList);
-        Utils.renderPage(savedSnippets, SavedSnippetsList);
-
         document.getElementById("userSnippetsTab").addEventListener("click", (event) => openTab(event, "userSnippets"));
         document.getElementById("followersTab").addEventListener("click", (event) => openTab(event, "followers"));
         document.getElementById("followingTab").addEventListener("click", (event) => openTab(event, "following"));
@@ -70,10 +66,19 @@ const Home = {
         }
         document.getElementById("userSnippets").style.display = "block";
 
-        document.getElementById("snippet1").addEventListener("click", (event) => {
-            Utils.navigateTo("#/snippet/1");
+        firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+                let currentUser = await DataControl.getUserInfo(user.uid);
+                document.getElementById("username").innerHTML = currentUser.username;
+                document.getElementById("aboutProfile").innerHTML = currentUser.about;
+                document.getElementById("profilePhoto").src = currentUser.photoUrlPath;
+                Utils.renderPage(userSnippets, SnippetsList);
+                Utils.renderPage(followers, FollowersList);
+                Utils.renderPage(following, FollowingList);
+                Utils.renderPage(savedSnippets, SavedSnippetsList);
+            }
         });
-        
+
         Utils.loadScript("https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js");
     }
 }

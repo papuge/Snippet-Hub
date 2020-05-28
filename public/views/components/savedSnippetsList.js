@@ -1,14 +1,18 @@
 import Utils from "../../scripts/utils.js"
+import DataControl from "../../scripts/dataControl.js"
+
 
 const SavedSnippetsList = {
+
     render: async () => {
+
+        let snippets =  await getSavedSnippets();
 
         let view = /*html*/ `
             <ul class="snippets">
-                ${
-                    snippets.map(s =>
+                ${  snippets.map(s =>
                         /*html*/`
-                        <li id="snippet1">
+                        <li id="${s.id}">
                             <div class="snippet-demo-header">
                                 <h5 class="snippet-demo-name">${s.name}</h5>
                                 <p class="snippet-demo-lang">${Utils.langs[s.lang]}</p>
@@ -33,10 +37,19 @@ const SavedSnippetsList = {
     afterRender: async () => { }
 }
 
-function getSavedSnippets() {
-    return [];
-}
+async function getSavedSnippets() {
 
-let snippets = getSavedSnippets();
+    let request = Utils.parseUrl();
+
+    // home page
+    if (request.resource == null) {
+
+        return await DataControl.getSavedSnippets(firebase.auth().currentUser);
+
+    } else {
+
+        return await DataControl.getSavedSnippets(request.id);
+    }
+}
 
 export default SavedSnippetsList

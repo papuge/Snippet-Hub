@@ -2,7 +2,7 @@ const NewSnippet = {
     render: async () =>
      /*html*/ `
      <main>
-        <form class="snippet-form" method="post">
+        <form class="snippet-form" method="post" id="snippetForm">
             <h3 class="mb-20">New snippet</h3>
             <fieldset class='access-fieldset'>
                 <legend>Access</legend>
@@ -34,7 +34,17 @@ const NewSnippet = {
     `,
 
     afterRender: async() => {
-        // TODO() send
+
+        document.getElementById("snippetForm").addEventListener("submit", async (event) => {
+
+            let email = document.getElementById("emailInput").value;
+            let password = document.getElementById("passwordInput").value;
+
+            Auth.logIn(email, password);
+
+            event.preventDefault();
+            
+        }, false);
     }
 }
 

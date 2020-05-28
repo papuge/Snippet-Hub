@@ -1,4 +1,6 @@
 import Auth from "../../scripts/auth.js"
+import DataControl from "../../scripts/dataControl.js"
+
 
 const Navbar = {
     render: async () =>
@@ -20,7 +22,7 @@ const Navbar = {
             <i class="material-icons" style="color: black;">notifications</i>
         </a>
         <div class="dropdown" id="profileDropdown">
-            <img src="./images/avatar_placeholder.png" class="nav-profile dropbtn" alt="avatar">
+            <img src="./images/avatar_placeholder.png" class="nav-profile dropbtn" alt="avatar" id="photoDrop">
             <div class="dropdown-content">
                 <a href="#/profile/:id/edit">Edit profile</a>
                 <button id="logoutBtn">Logout</button>
@@ -46,9 +48,11 @@ const Navbar = {
         userMenu.style.display = "none";
         loginMenu.style.display = "none";
 
-        firebase.auth().onAuthStateChanged(function (user) {
+        firebase.auth().onAuthStateChanged(async function (user) {
             if (user) {
                 userMenu.style.display = "flex";
+                let currentUser = await DataControl.getUserInfo(user.uid);
+                document.getElementById("photoDrop").src = currentUser.photoUrlPath;
             } else {
                 loginMenu.style.display = "flex";
             }
