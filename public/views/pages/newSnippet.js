@@ -7,15 +7,15 @@ const NewSnippet = {
      <main>
         <form class="snippet-form" method="post" id="snippetForm">
             <h3 class="mb-20">New snippet</h3>
-            <fieldset class='access-fieldset'>
+            <fieldset class="access-fieldset">
                 <legend>Access</legend>
-                <input id='isPublic' name='access' type='radio' value="public" checked />
-                <label for='isPublic' class='radio-label'>Public</label>
-                <input id='isPrivate' name='access' type='radio' value="private" />
-                <label for='isPrivate' class='radio-label'>Private</label>
+                <input id="isPublic" name="access" type="radio" value="public" checked />
+                <label for="isPublic" class="radio-label">Public</label>
+                <input id="isPrivate" name="access" type="radio" value="private" />
+                <label for="isPrivate" class="radio-label">Private</label>
             </fieldset>
             <div class="snippet-form-header">
-                <input type="text" name="snippetName" id="snippetName" placeholder="Snippet name w/o extension" required maxlength="120">
+                <input type="text" name="snippetName" id="snippetName" placeholder="Snippet name w/o extension" required maxlength="120" tabindex="-1">
                 <select name="lang" id="snippetLang">
                     <option value="bsh">Bash</option>
                     <option value="c">C</option>
@@ -36,7 +36,7 @@ const NewSnippet = {
     </main>
     `,
 
-    afterRender: async() => {
+    afterRender: async () => {
 
         document.getElementById("snippetForm").addEventListener("submit", async (event) => {
 
@@ -61,7 +61,7 @@ const NewSnippet = {
             });
 
             event.preventDefault();
-            
+
         }, false);
     }
 }

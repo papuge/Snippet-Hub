@@ -9,12 +9,6 @@ import DataControl from "../../scripts/dataControl.js"
 const Home = {
     render: async () =>
      /*html*/ `
-     <form class="mobile-search-form" id="mobileSearchForm">
-        <button type="submit" class="icon-btn scale-btn" id="searchBtn">
-            <i class="material-icons">search</i>
-        </button>
-        <input type="search" class="search-field" id="searchField" placeholder="Search">
-    </form>
      <div class="page-content profile-view-flex">
      <aside class="sidebar">
          <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar" id="profilePhoto">

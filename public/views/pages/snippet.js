@@ -16,7 +16,9 @@ const Snippet = {
                     <section class="snippet-header">
                         <div class="start-flex-group">
                             <!-- find user by id -->
-                            <img src="./images/avatar_placeholder.png" class="profile-img" alt="avatar">
+                            <a href="" id="userLink">
+                                <img src="./images/avatar_placeholder.png" class="profile-img" alt="avatar" id="photo">
+                            </a>
                             <p id="snippetLang">${Utils.langs[snippet.lang]}</p>
                         </div>
                         <div class="end-flex-group">
@@ -43,7 +45,10 @@ const Snippet = {
 
         let snippet = await getSnippet();
         let snippetId = Utils.parseUrl().id;
+        let user = await DataControl.getUserInfo(snippet.uid);
 
+        document.getElementById("userLink").href = `#/profile/${snippet.uid}`;
+        document.getElementById("photo").src = user.photoUrlPath;
 
         const saveBtn = document.getElementById("saveBtn");
         const editBtn = document.getElementById("editBtn");
@@ -66,6 +71,14 @@ const Snippet = {
             }
         });
 
+        editBtn.addEventListener("click", async () => {
+            Utils.navigateTo(`#/snippet/${Utils.parseUrl().id}/edit`);
+        });
+
+        deleteBtn.addEventListener("click", async () => {
+            await DataControl.deleteSnippet(Utils.parseUrl().id);
+        });
+
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
 
@@ -79,8 +92,8 @@ const Snippet = {
                 saveBtn.style.display = "block";
 
                 if (snippet.uid == user.uid) {
-                    editBtn.style.display = "block";
-                    deleteBtn.style.display = "block";
+                    editBtn.style.display = "inline-block";
+                    deleteBtn.style.display = "inline-block";
                 }
             }
         });

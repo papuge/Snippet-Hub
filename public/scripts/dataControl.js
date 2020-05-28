@@ -27,9 +27,11 @@ const DataControl = {
         await ref.once("value").then(function (snapshot) {
             snapshot.forEach(function (item) {
                 let snippet = item.val();
-                if (item.hasChild(`suid/${uid}`)) {
-                    snippet.id = item.key;
-                    snippets.push(snippet);
+                if (snippet.access == "public") {
+                    if (item.hasChild(`suid/${uid}`)) {
+                        snippet.id = item.key;
+                        snippets.push(snippet);
+                    }
                 }
             });
         });
@@ -64,7 +66,7 @@ const DataControl = {
 
         let newSnippetKey = firebase.database().ref().child('snippets').push().key;
 
-        var updates = {};
+        let updates = {};
         updates["/snippets/" + newSnippetKey] = snippet;
 
         await firebase.database().ref().update(updates);
@@ -101,10 +103,20 @@ const DataControl = {
 
     editSnippet: async ({ id, name, lang, code, access }) => {
 
+        let updates = {};
+        updates[`snippets/${id}/name`] = name;
+        updates[`snippets/${id}/lang`] = lang;
+        updates[`snippets/${id}/code`] = code;
+        updates[`snippets/${id}/access`] = access;
+
+        await firebase.database().ref().update(updates);
+
+        Utils.navigateTo(`/#/snippet/${id}`);
     },
 
     deleteSnippet: async (id) => {
-
+        await firebase.database().ref(`snippets/${id}`).remove();
+        Utils.navigateTo(`/`);
     },
 
     followUser: async (uid) => {
@@ -112,6 +124,10 @@ const DataControl = {
     },
 
     unfollowUser: async (uid) => {
+
+    },
+
+    isFollowing: async (uid) => {
 
     },
 
@@ -127,12 +143,7 @@ const DataControl = {
 
     editProfile: async ({ photo, username, email, about }) => {
 
-    },
-
-    filterSnippets: async (query) => {
-
     }
-
 }
 
 export default DataControl
