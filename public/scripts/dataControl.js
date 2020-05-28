@@ -189,8 +189,28 @@ const DataControl = {
         return user;
     },
 
-    editProfile: async ({ photo, username, email, about }) => {
+    editProfile: async ({ photoUrl, username, email, about }) => {
+        let user = firebase.auth().currentUser;
+        let id = user.uid;
 
+        let updates = {};
+        if (photoUrl) {
+            updates[`users/${id}/photoUrlPath`] = photoUrl;
+        }
+        if (username) {
+            updates[`users/${id}/username`] = username;
+        }
+        if (email) {
+            updates[`users/${id}/email`] = email;
+            await user.updateEmail(email);
+        }
+        if (about) {
+            updates[`users/${id}/about`] = about;
+        }
+
+        await firebase.database().ref().update(updates, () => {
+            Utils.navigateTo(`/`);
+        });
     }
 }
 

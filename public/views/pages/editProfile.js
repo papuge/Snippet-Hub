@@ -34,11 +34,56 @@ const EditProfile = {
     </main>
     `,
 
-    afterRender: async() => {
+    afterRender: async () => {
 
-        let file = document.getElementById("snippetName");
-        let langSelect = document.getElementById("snippetLang");
-        let snippetCode = document.getElementById("snippetCode");
+        let fileInput = document.getElementById("avatarFile");
+        let usernameInput = document.getElementById("username");
+        let emailInput = document.getElementById("email");
+        let aboutInput = document.getElementById("about");
+
+        document.getElementById("profileForm").addEventListener("submit", async (event) => {
+
+            let downloadedUrl = "";
+            if (fileInput.files.length > 0) {
+
+                const ref = firebase.storage().ref();
+                const file = fileInput.files[0];
+                const name = (+new Date()) + "-" + file.name;
+                const metadata = { contentType: file.type };
+                const task = ref.child(name).put(file, metadata);
+
+                task
+                    .then(snapshot => snapshot.ref.getDownloadURL())
+                    .then((url) => {
+                        downloadedUrl = url;
+                        let username = usernameInput.value;
+                        let email = emailInput.value;
+                        let about = aboutInput.value;
+
+                        DataControl.editProfile({
+                            photoUrl: downloadedUrl,
+                            username: username,
+                            email: email,
+                            about: about
+                        });
+                    });
+
+            } else {
+                let username = usernameInput.value;
+                let email = emailInput.value;
+                let about = aboutInput.value;
+    
+                DataControl.editProfile({
+                    photoUrl: downloadedUrl,
+                    username: username,
+                    email: email,
+                    about: about
+                });
+            }
+
+            event.preventDefault();
+
+        }, false);
 
     }
 }

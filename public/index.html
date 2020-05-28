@@ -18,8 +18,16 @@
   <!-- include only the Firebase features as you need -->
   <script defer src="/__/firebase/7.14.3/firebase-auth.js"></script>
   <script defer src="/__/firebase/7.14.3/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.14.3/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.14.3/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
+
+  <script>
+    // Retrieve Firebase Messaging object.
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey("BAbWbKryO1qE5xx9d9gOpad4cOpXJs7N8BVdoEBIO0hNPx2R0lkeV4ev0vVt0HfsO5C0mefXDKKS6FDrKArzz-o");
+  </script>
 
   <script type="module" src="./app.js"></script>
 
