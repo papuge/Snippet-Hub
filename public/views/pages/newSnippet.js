@@ -1,3 +1,6 @@
+import DataControl from "../../scripts/dataControl.js"
+
+
 const NewSnippet = {
     render: async () =>
      /*html*/ `
@@ -27,7 +30,7 @@ const NewSnippet = {
                     <option value="xml">XML</option>
                 </select>
             </div>
-            <textarea name="" id="" placeholder="Snippet here" wrap="off" required></textarea>
+            <textarea name="code" id="snippetCode" placeholder="Snippet here" wrap="off" required></textarea>
             <button class="primary-btn form-btn" type="submit">Create</button>
         </form>
     </main>
@@ -37,10 +40,25 @@ const NewSnippet = {
 
         document.getElementById("snippetForm").addEventListener("submit", async (event) => {
 
-            let email = document.getElementById("emailInput").value;
-            let password = document.getElementById("passwordInput").value;
+            const rbs = document.querySelectorAll('input[name="access"]');
+            let snippetAccess = "public";
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    snippetAccess = rb.value;
+                }
+            }
 
-            Auth.logIn(email, password);
+            const snippetName = document.getElementById("snippetName").value;
+            const langSelect = document.getElementById("snippetLang");
+            const snippetLang = langSelect.options[langSelect.selectedIndex].value;
+            const snippetCode = document.getElementById("snippetCode").value;
+
+            await DataControl.createSnippet({
+                name: snippetName,
+                lang: snippetLang,
+                code: snippetCode,
+                access: snippetAccess
+            });
 
             event.preventDefault();
             

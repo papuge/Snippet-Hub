@@ -12,7 +12,7 @@ const SavedSnippetsList = {
             <ul class="snippets">
                 ${  snippets.map(s =>
                         /*html*/`
-                        <li id="${s.id}">
+                        <li id="s${s.id}">
                             <div class="snippet-demo-header">
                                 <h5 class="snippet-demo-name">${s.name}</h5>
                                 <p class="snippet-demo-lang">${Utils.langs[s.lang]}</p>
@@ -34,7 +34,20 @@ const SavedSnippetsList = {
        return view;
     },
 
-    afterRender: async () => { }
+    afterRender: async () => { 
+
+        let snippets = await getSavedSnippets();
+
+        snippets.forEach(s => {
+
+            document.getElementById(`s${s.id}`).addEventListener("click", () => {
+                Utils.navigateTo(`#/snippet/${s.id}`);
+            });
+
+        });
+
+        Utils.loadScript("https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js");
+    }
 }
 
 async function getSavedSnippets() {
@@ -42,9 +55,9 @@ async function getSavedSnippets() {
     let request = Utils.parseUrl();
 
     // home page
-    if (request.resource == null) {
+    if (!request.resource) {
 
-        return await DataControl.getSavedSnippets(firebase.auth().currentUser);
+        return await DataControl.getSavedSnippets(firebase.auth().currentUser.uid);
 
     } else {
 

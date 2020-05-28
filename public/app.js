@@ -17,7 +17,7 @@ const routes = {
     "/login": Login,
     "/signup": SignUp,
     "/snippet/:id": Snippet,
-    "/newsnippet": NewSnippet
+    "/newSnippet": NewSnippet
     // "/snippet/:id/edit": SnippetEdit,
     // "/search/:template": Search,
     // "/notifications/": Notifications

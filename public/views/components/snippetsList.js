@@ -11,7 +11,7 @@ const SnippetsList = {
         <ul class="snippets">
             ${ snippets.map(s =>
                     /*html*/`
-                    <li id="snippet1">
+                    <li id="${s.id}">
                         <div class="snippet-demo-header">
                             <h5 class="snippet-demo-name">${s.name}</h5>
                             <p class="snippet-demo-lang">${Utils.langs[s.lang]}</p>
@@ -19,21 +19,34 @@ const SnippetsList = {
                         <pre class="prettyprint linenums lang-${s.lang}">${s.code}</pre>
                     </li>
                     `
-                ).join('\n')
+        ).join('\n')
             }
         </ul>
        `;
 
-       if (snippets.length == 0) {
+        if (snippets.length == 0) {
             view = /*html*/ `
                 <p class="center-text mv-20">No snippets yet</p>
             `;
         }
 
-       return view;
+        return view;
     },
 
-    afterRender: async () => { }
+    afterRender: async () => {
+
+        let snippets = await getSnippets();
+
+        snippets.forEach(s => {
+
+            document.getElementById(s.id).addEventListener("click", () => {
+                Utils.navigateTo(`#/snippet/${s.id}`);
+            });
+
+        });
+
+        Utils.loadScript("https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js");
+    }
 }
 
 async function getSnippets() {
@@ -41,9 +54,9 @@ async function getSnippets() {
     let request = Utils.parseUrl();
 
     // home page
-    if (request.resource == null) {
-    
-        return await DataControl.getSnippets(firebase.auth().currentUser, true);
+    if (!request.resource) {
+
+        return await DataControl.getSnippets(firebase.auth().currentUser.uid, true);
 
     } else {
 

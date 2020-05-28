@@ -595,7 +595,7 @@ ul.snippets {
 }
 
 ul.snippets > li {
-    margin: 35px 5px 25px 10%;
+    margin: 35px auto;
     border: var(--snippet-frame-border) solid #d1d1d1;
     border-radius: var(--snippet-border-radius);
     width: 60vw;

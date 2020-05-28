@@ -1,3 +1,6 @@
+import Utils from "./utils.js";
+
+
 const DataControl = {
 
     getSnippets: async (uid, isAll) => {
@@ -8,6 +11,7 @@ const DataControl = {
                 let snippet = item.val();
                 if (snippet.uid == uid) {
                     if (!isAll && snippet.access == "public" || isAll) {
+                        snippet.id = item.key;
                         snippets.push(snippet);
                     }
                 }
@@ -23,12 +27,9 @@ const DataControl = {
         await ref.once("value").then(function (snapshot) {
             snapshot.forEach(function (item) {
                 let snippet = item.val();
-                if (snippet.access == "public") {
-                    for (let suid of snippet.suid) {
-                        if (suid == uid) {
-                            snippets.push(snippet);
-                        }
-                    }
+                if (item.hasChild(`suid/${uid}`)) {
+                    snippet.id = item.key;
+                    snippets.push(snippet);
                 }
             });
         });
@@ -36,12 +37,66 @@ const DataControl = {
         return snippets;
     },
 
+    getSnippet: async (id) => {
+
+        let snippet = null;
+        let ref = firebase.database().ref(`snippets/${id}`);
+
+        await ref.once("value").then(function (snapshot) {
+            snippet = snapshot.val();
+        });
+
+        return snippet;
+    },
+
     createSnippet: async ({ name, lang, code, access }) => {
+
+        let uid = firebase.auth().currentUser.uid;
+
+        let snippet = {
+            name: name,
+            lang: lang,
+            code: code,
+            access: access,
+            uid: uid,
+            time: Date.now()
+        };
+
+        let newSnippetKey = firebase.database().ref().child('snippets').push().key;
+
+        var updates = {};
+        updates["/snippets/" + newSnippetKey] = snippet;
+
+        await firebase.database().ref().update(updates);
+
+        Utils.navigateTo("/");
 
     },
 
     saveSnippet: async (id) => {
 
+        let uid = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/snippets/${id}/suid/${uid}`).set("");
+    },
+
+    unsaveSnippet: async (id) => {
+        let uid = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/snippets/${id}/suid/${uid}`).remove();
+    },
+
+    isSavedSnippet: async (id) => {
+
+        let uid = firebase.auth().currentUser.uid;
+        let isSaved = false;
+        let ref = firebase.database().ref(`snippets/${id}`);
+        await ref.once("value").then(async (snapshot) => {
+
+            if (snapshot.hasChild(`suid/${uid}`)) {
+                isSaved = true;
+            }
+        });
+
+        return isSaved;
     },
 
     editSnippet: async ({ id, name, lang, code, access }) => {
@@ -53,7 +108,7 @@ const DataControl = {
     },
 
     followUser: async (uid) => {
-        
+
     },
 
     unfollowUser: async (uid) => {

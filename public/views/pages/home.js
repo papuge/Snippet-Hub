@@ -78,8 +78,6 @@ const Home = {
                 Utils.renderPage(savedSnippets, SavedSnippetsList);
             }
         });
-
-        Utils.loadScript("https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js");
     }
 }
 

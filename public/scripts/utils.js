@@ -15,7 +15,7 @@ const Utils = {
     },
 
     parseUrl: () => {
-        let url = location.hash.slice(1).toLowerCase() || '/';
+        let url = location.hash.slice(1) || '/';
         let r = url.split("/");
         let request = {
             resource: null,
@@ -46,6 +46,11 @@ const Utils = {
 
     navigateTo: (url) => {
         window.location.href = url;
+    },
+
+    toDateFormat: (timestamp) => {
+        let date = new Date(timestamp);
+        return ` ${date.getHours()}:${date.getMinutes()} ${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
     }
 }
 
