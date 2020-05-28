@@ -2,11 +2,11 @@ const FollowingList = {
 
     render: async () => {
 
-        let users = getFollowing();
+        let users = getFollowers();
 
         let view = /*html*/ `
             <ul class="follow-list">
-                ${ 
+                ${
                     users.map(user =>
                         /*html*/`
                         <li>
@@ -19,10 +19,10 @@ const FollowingList = {
                 }
             </ul>
         `;
-
+        
         if (users.length == 0) {
             view = /*html*/ `
-                <p class="center-text mv-20">No following yet</p>
+                <p class="center-text mv-20">No followers yet</p>
             `;
         }
 
@@ -32,7 +32,7 @@ const FollowingList = {
     afterRender: async () => { }
 }
 
-function getFollowing() {
+function getFollowers() {
     // parse url here
     return [];
 }

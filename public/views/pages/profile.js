@@ -1,4 +1,8 @@
 import Utils from "../../scripts/utils.js"
+import FollowersList from "../components/followersList.js"
+import FollowingList from "../components/followingList.js"
+import SnippetsList from "../components/snippetsList.js"
+import SavedSnippetsList from "../components/savedSnippetsList.js"
 
 const Profile = {
     render: async () =>
@@ -23,147 +27,10 @@ const Profile = {
             <button class="tab-link" id="followingTab">Following</button>
             <button class="tab-link" id="savedSnippetsTab">Saved</button>
          </nav>
-         <div id="followers" class="tab-content">
-             <ul class="follow-list">
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">coose</h5>
-                     <p class=about-list>54 y.o.</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">goblinn</h5>
-                     <p class=about-list>iOS developer</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">gwyrwch</h5>
-                     <p class=about-list>student at BSUIR</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">levir</h5>
-                     <p class=about-list></p>
-                 </li>
-             </ul>
-         </div>
-         <div id="following" class="tab-content">
-             <ul class="follow-list">
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">goblinn</h5>
-                     <p class=about-list>iOS developer</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">coose</h5>
-                     <p class=about-list>54 y.o.</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">gwyrwch</h5>
-                     <p class=about-list>student at BSUIR</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">levir</h5>
-                     <p class=about-list></p>
-                 </li>
-             </ul>
-         </div>
-         <div id="following" class="tab-content">
-             <ul class="follow-list">
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">goblinn</h5>
-                     <p class=about-list>iOS developer</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">coose</h5>
-                     <p class=about-list>54 y.o.</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">gwyrwch</h5>
-                     <p class=about-list>student at BSUIR</p>
-                 </li>
-                 <li>
-                     <img src="./images/avatar_placeholder.png" alt="avatar">
-                     <h5 class="username">levir</h5>
-                     <p class=about-list></p>
-                 </li>
-             </ul>
-         </div>
-         <div id="userSnippets" class="tab-content">
-             <ul class="snippets">
-                 <li>
-                     <div class="snippet-demo-header">
-                         <h5 class="snippet-demo-name">
-                             initnitnitnitnitnitnit
-                         </h5>
-                         <p class="snippet-demo-lang">C++</p>
-                     </div>
-                     <pre class="prettyprint linenums lang-cpp">
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-                     </pre>
-                 </li>
-                 <li>
-                     <div class="snippet-demo-header">
-                         <h5 class="snippet-demo-name">
-                             repeat
-                         </h5>
-                         <p class="snippet-demo-lang">C++</p>
-                     </div>
-                     <pre class="prettyprint linenums lang-cpp">
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-                     </pre>
-                 </li>
-                 <li>
-                     <div class="snippet-demo-header">
-                         <h5 class="snippet-demo-name">
-                             initnitnitnitnitnitnitn
-                         </h5>
-                         <p class="snippet-demo-lang">C++</p>
-                     </div>
-                     <pre class="prettyprint linenums lang-cpp">
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-                     </pre>
-                 </li>
-             </ul>
-         </div>
-         <div id="savedSnippets" class="tab-content">
-             <ul class="snippets">
-                 <li>
-                     <div class="snippet-demo-header">
-                         <h5 class="snippet-demo-name">
-                             initnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitinitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnitnit
-                         </h5>
-                         <p class="snippet-demo-lang">C++</p>
-                     </div>
-                     <pre class="prettyprint linenums lang-cpp">
-int x = 42;  /* This is a comment 
-Continuation of comment */
-int y = 7;
-                     </pre>
-                 </li>
-             </ul>
-         </div>
+         <div id="userSnippets" class="tab-content"></div>
+         <div id="followers" class="tab-content"></div>
+         <div id="following" class="tab-content"></div>
+         <div id="savedSnippets" class="tab-content"></div>
      </main>
  </div>
     `,
@@ -181,6 +48,16 @@ int y = 7;
             event.currentTarget.className += " current";
             document.getElementById(tabId).style.display = "block";
         }
+
+        const userSnippets = document.getElementById("userSnippets");
+        const followers = document.getElementById("followers");
+        const following = document.getElementById("following");
+        const savedSnippets = document.getElementById("savedSnippets");
+
+        Utils.renderPage(userSnippets, SnippetsList);
+        Utils.renderPage(followers, FollowersList);
+        Utils.renderPage(following, FollowingList);
+        Utils.renderPage(savedSnippets, SavedSnippetsList);
 
         document.getElementById("userSnippetsTab").addEventListener("click", (event) => openTab(event, "userSnippets"));
         document.getElementById("followersTab").addEventListener("click", (event) => openTab(event, "followers"));

@@ -14,17 +14,17 @@ const NewSnippet = {
             <div class="snippet-form-header">
                 <input type="text" name="snippetName" id="snippetName" placeholder="Snippet name w/o extension" required maxlength="120">
                 <select name="lang" id="snippetLang">
-                    <option value="">Bash</option>
-                    <option value="">C</option>
-                    <option value="">C++</option>
-                    <option value="">C#</option>
-                    <option value="">CSS</option>
-                    <option value="">JavaScript</option>
-                    <option value="">Java</option>
-                    <option value="">HTML</option>
-                    <option value="">Python</option>
-                    <option value="">Rust</option>
-                    <option value="">XML</option>
+                    <option value="bsh">Bash</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="cs">C#</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="html">HTML</option>
+                    <option value="py">Python</option>
+                    <option value="rb">Ruby</option>
+                    <option value="xml">XML</option>
                 </select>
             </div>
             <textarea name="" id="" placeholder="Snippet here" wrap="off" required></textarea>

@@ -1,4 +1,19 @@
 const Utils = {
+
+    langs: {
+        "bsh": "Bash",
+        "c": "C",
+        "cpp": " C++",
+        "cs": "C#",
+        "css": "CSS",
+        "js": "JavaScript",
+        "java": "Java",
+        "html": "HTML",
+        "py": "Python",
+        "rb": "Ruby",
+        "xml": "XML"
+    },
+
     parseUrl: () => {
         let url = location.hash.slice(1).toLowerCase() || '/';
         let r = url.split("/");
