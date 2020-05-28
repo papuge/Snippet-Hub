@@ -177,7 +177,7 @@ input[type='password'] {
 .end-flex-group > button,
 .end-flex-group > div,
 .end-flex-group > a {
-    margin: 0 3%;
+    margin: 0 18px;
 }
 
 .end-flex-group:last-child {
@@ -190,10 +190,10 @@ input[type='password'] {
     align-items: center;
 }
 
-.start-flex-group > a,
-.start-flex-group > p,
-.start-flex-group > h2 {
-    margin-right: 3%;
+.start-flex-group a,
+.start-flex-group p,
+.start-flex-group h2 {
+    margin: 0 7px;
 }
 
 .start-flex-group > img {
@@ -690,5 +690,12 @@ ul.snippets > li {
     }
     .snippet-form .access-fieldset label {
         padding: 0 10px 0 5px;
+    }
+
+    .end-flex-group > img,
+    .end-flex-group > button,
+    .end-flex-group > div,
+    .end-flex-group > a {
+        margin: 0 3%;
     }
 }

@@ -9,7 +9,7 @@ import DataControl from "../../scripts/dataControl.js"
 const Home = {
     render: async () =>
      /*html*/ `
-     <div class="page-content profile-view-flex">
+     <div class="page-content profile-view-flex" id="homeDiv">
      <aside class="sidebar">
          <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar" id="profilePhoto">
          <h3 id="username"></h3>
@@ -48,6 +48,7 @@ const Home = {
         const followers = document.getElementById("followers");
         const following = document.getElementById("following");
         const savedSnippets = document.getElementById("savedSnippets");
+        const homeDiv = document.getElementById("homeDiv");
 
         document.getElementById("userSnippetsTab").addEventListener("click", (event) => openTab(event, "userSnippets"));
         document.getElementById("followersTab").addEventListener("click", (event) => openTab(event, "followers"));
@@ -70,6 +71,12 @@ const Home = {
                 Utils.renderPage(followers, FollowersList);
                 Utils.renderPage(following, FollowingList);
                 Utils.renderPage(savedSnippets, SavedSnippetsList);
+            } else {
+                homeDiv.style.display = "block";
+                homeDiv.innerHTML = /* html */ `
+                    <h1 class="center-text mv-20">Welcome to Snippet Hub</h1>
+                    <h2 class="center-text mv-20">To get started, please, log in</h2>
+                `
             }
         });
     }

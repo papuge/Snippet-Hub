@@ -54,6 +54,17 @@ const Profile = {
         const savedSnippets = document.getElementById("savedSnippets");
         const followBtn = document.getElementById("followBtn");
 
+        followBtn.addEventListener("click", async () => {
+            if (followBtn.innerHTML == "Follow") {
+                await DataControl.followUser(Utils.parseUrl().id);
+                followBtn.innerHTML = "Unfollow";
+            } else {
+                await DataControl.unfollowUser(Utils.parseUrl().id);
+                followBtn.innerHTML = "Follow";
+            }
+            Utils.renderPage(followers, FollowersList);
+        })
+
         followBtn.style.display = "none";
 
         document.getElementById("userSnippetsTab").addEventListener("click", (event) => openTab(event, "userSnippets"));
@@ -72,18 +83,25 @@ const Profile = {
                 if (user.uid == userId) {
                     Utils.navigateTo("/");
                 } else {
-
                     followBtn.style.display = "inline-block";
-                    let currentUser = await DataControl.getUserInfo(userId);
-                    document.getElementById("username").innerHTML = currentUser.username;
-                    document.getElementById("aboutProfile").innerHTML = currentUser.about;
-                    document.getElementById("profilePhoto").src = currentUser.photoUrlPath;
-    
-                    Utils.renderPage(userSnippets, SnippetsList);
-                    Utils.renderPage(followers, FollowersList);
-                    Utils.renderPage(following, FollowingList);
-                    Utils.renderPage(savedSnippets, SavedSnippetsList);
                 }
+            }
+
+            let currentUser = await DataControl.getUserInfo(userId);
+            document.getElementById("username").innerHTML = currentUser.username;
+            document.getElementById("aboutProfile").innerHTML = currentUser.about;
+            document.getElementById("profilePhoto").src = currentUser.photoUrlPath;
+
+            Utils.renderPage(userSnippets, SnippetsList);
+            Utils.renderPage(followers, FollowersList);
+            Utils.renderPage(following, FollowingList);
+            Utils.renderPage(savedSnippets, SavedSnippetsList);
+
+            let isFollowing = await DataControl.isFollowing(Utils.parseUrl().id);
+            if (isFollowing) {
+                followBtn.innerHTML = "Unfollow";
+            } else {
+                followBtn.innerHTML = "Follow";
             }
         });
 

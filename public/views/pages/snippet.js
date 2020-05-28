@@ -22,13 +22,13 @@ const Snippet = {
                             <p id="snippetLang">${Utils.langs[snippet.lang]}</p>
                         </div>
                         <div class="end-flex-group">
-                            <button class="primary-btn not-displayed" id="editBtn">
+                            <button class="primary-btn" id="editBtn">
                                 Edit
                             </button>
-                            <button class="primary-btn not-displayed" id="deleteBtn">
+                            <button class="primary-btn" id="deleteBtn">
                                 Delete
                             </button>
-                            <button class="btn icon-btn not-displayed" id="saveBtn">
+                            <button class="btn icon-btn" id="saveBtn">
                                 <i class="material-icons" id="saveStateIc">bookmark</i>
                             </button>
                         </div>

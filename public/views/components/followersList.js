@@ -1,8 +1,12 @@
+import Utils from "../../scripts/utils.js"
+import DataControl from "../../scripts/dataControl.js"
+
+
 const FollowingList = {
 
     render: async () => {
 
-        let users = getFollowers();
+        let users = await getFollowers();
 
         let view = /*html*/ `
             <ul class="follow-list">
@@ -32,9 +36,14 @@ const FollowingList = {
     afterRender: async () => { }
 }
 
-function getFollowers() {
-    // parse url here
-    return [];
+async function getFollowers() {
+    let request = Utils.parseUrl();
+
+    if (!request.resource) {
+        return await DataControl.getFollowers(firebase.auth().currentUser.uid);
+    } else {
+        return await DataControl.getFollowers(request.id);
+    }
 }
 
 export default FollowingList

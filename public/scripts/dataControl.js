@@ -92,7 +92,6 @@ const DataControl = {
         let isSaved = false;
         let ref = firebase.database().ref(`snippets/${id}`);
         await ref.once("value").then(async (snapshot) => {
-
             if (snapshot.hasChild(`suid/${uid}`)) {
                 isSaved = true;
             }
@@ -109,26 +108,75 @@ const DataControl = {
         updates[`snippets/${id}/code`] = code;
         updates[`snippets/${id}/access`] = access;
 
-        await firebase.database().ref().update(updates);
-
-        Utils.navigateTo(`/#/snippet/${id}`);
+        await firebase.database().ref().update(updates, () => {
+            Utils.navigateTo(`#/snippet/${id}`);
+        });
     },
 
     deleteSnippet: async (id) => {
-        await firebase.database().ref(`snippets/${id}`).remove();
-        Utils.navigateTo(`/`);
+        await firebase.database().ref(`snippets/${id}`).remove().then(() => {
+            Utils.navigateTo(`/`);
+        });
     },
 
     followUser: async (uid) => {
-
+        let id = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/users/${id}/following/${uid}`).set("");
+        await firebase.database().ref(`/users/${uid}/followers/${id}`).set("");
     },
 
     unfollowUser: async (uid) => {
-
+        let id = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/users/${id}/following/${uid}`).remove();
+        await firebase.database().ref(`/users/${uid}/followers/${id}`).remove();
     },
 
     isFollowing: async (uid) => {
+        let id = firebase.auth().currentUser.uid;
+        let isFollowing = false;
+        let ref = firebase.database().ref(`users/${id}/following`);
+        let snap = await ref.once("value");
+        if (snap.hasChild(`${uid}`)) {
+            isFollowing = true;
+        }
 
+        return isFollowing;
+    },
+
+    getFollowers: async (uid) => {
+        let followers = [];
+        let followersUsers = [];
+        let snap = await firebase.database().ref(`users/${uid}/followers`).once("value");
+        snap.forEach(async function (item) {
+            let followerId = item.key;
+            followers.push(followerId);
+        });
+        for (let fid of followers) {
+            let fsnap = await firebase.database().ref(`users/${fid}`).once("value");
+            let user = fsnap.val();
+            user.uid = fid;
+            followersUsers.push(user);
+        }
+    
+        return followersUsers;
+    },
+
+    getFollowing: async (uid) => {
+        let following = [];
+        let followingUsers = [];
+        let snap = await firebase.database().ref(`users/${uid}/following`).once("value");
+        snap.forEach(async function (item) {
+            let followingId = item.key;
+            following.push(followingId);
+        });
+        for (let fid of following) {
+            let fsnap = await firebase.database().ref(`users/${fid}`).once("value");
+            let user = fsnap.val();
+            user.uid = fid;
+            followingUsers.push(user);
+        }
+    
+        return followingUsers;
     },
 
     getUserInfo: async (uid) => {

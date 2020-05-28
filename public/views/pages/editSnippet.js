@@ -8,7 +8,7 @@ const EditSnippet = {
 
         let view = /*html*/ `
         <main>
-            <form class="snippet-form" method="post" id="snippetForm">
+            <form class="snippet-form" method="post" id="editSnippetForm">
                 <h3 class="mb-20">Edit snippet</h3>
                 <fieldset class='access-fieldset'>
                     <legend>Access</legend>
@@ -75,7 +75,7 @@ const EditSnippet = {
         snippetCode.innerHTML = snippet.code;
 
 
-        document.getElementById("snippetForm").addEventListener("submit", async (event) => {
+        document.getElementById("editSnippetForm").addEventListener("submit", async (event) => {
 
             const rbs = document.querySelectorAll('input[name="access"]');
             let snippetAccess = "public";
@@ -90,7 +90,7 @@ const EditSnippet = {
             const snippetLang = langSelect.options[langSelect.selectedIndex].value;
             const snippetCode = document.getElementById("snippetCode").value;
 
-            await DataControl.editSnippet({
+            DataControl.editSnippet({
                 id: Utils.parseUrl().id,
                 name: snippetName,
                 lang: snippetLang,
