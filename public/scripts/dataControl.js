@@ -147,7 +147,7 @@ const DataControl = {
         let followers = [];
         let followersUsers = [];
         let snap = await firebase.database().ref(`users/${uid}/followers`).once("value");
-        snap.forEach(async function (item) {
+        snap.forEach(function (item) {
             let followerId = item.key;
             followers.push(followerId);
         });
@@ -157,7 +157,7 @@ const DataControl = {
             user.uid = fid;
             followersUsers.push(user);
         }
-    
+
         return followersUsers;
     },
 
@@ -165,7 +165,7 @@ const DataControl = {
         let following = [];
         let followingUsers = [];
         let snap = await firebase.database().ref(`users/${uid}/following`).once("value");
-        snap.forEach(async function (item) {
+        snap.forEach(function (item) {
             let followingId = item.key;
             following.push(followingId);
         });
@@ -175,7 +175,7 @@ const DataControl = {
             user.uid = fid;
             followingUsers.push(user);
         }
-    
+
         return followingUsers;
     },
 
