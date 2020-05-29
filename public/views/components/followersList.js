@@ -6,11 +6,11 @@ const FollowingList = {
 
     render: async () => {
 
-        let users = await getFollowing();
+        let users = await getFollowers();
 
         let view = /*html*/ `
             <ul class="follow-list">
-                ${ 
+                ${
                     users.map(user =>
                         /*html*/`
                         <li>
@@ -23,10 +23,10 @@ const FollowingList = {
                 }
             </ul>
         `;
-
+        
         if (users.length == 0) {
             view = /*html*/ `
-                <p class="center-text mv-20">No following yet</p>
+                <p class="center-text mv-20">No followers yet</p>
             `;
         }
 
@@ -36,14 +36,13 @@ const FollowingList = {
     afterRender: async () => { }
 }
 
-async function getFollowing() {
-
+async function getFollowers() {
     let request = Utils.parseUrl();
 
     if (!request.resource) {
-        return await DataControl.getFollowing(firebase.auth().currentUser.uid);
+        return await DataControl.getFollowers(firebase.auth().currentUser.uid);
     } else {
-        return await DataControl.getFollowing(request.id);
+        return await DataControl.getFollowers(request.id);
     }
 }
 

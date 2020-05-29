@@ -177,7 +177,7 @@ input[type='password'] {
 .end-flex-group > button,
 .end-flex-group > div,
 .end-flex-group > a {
-    margin: 0 3%;
+    margin: 0 18px;
 }
 
 .end-flex-group:last-child {
@@ -190,10 +190,10 @@ input[type='password'] {
     align-items: center;
 }
 
-.start-flex-group > a,
-.start-flex-group > p,
-.start-flex-group > h2 {
-    margin-right: 3%;
+.start-flex-group a,
+.start-flex-group p,
+.start-flex-group h2 {
+    margin: 0 7px;
 }
 
 .start-flex-group > img {
@@ -232,12 +232,19 @@ input[type='password'] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 25%;
+}
+
+.sidebar h3,
+.sidebar p {
+    overflow-wrap: break-word;
 }
 
 /* specific */
 #aboutProfile {
     text-align: center;
     margin: 15px 0px;
+    overflow-wrap: break-word;
 }
 
 /* buttons */
@@ -588,7 +595,7 @@ ul.snippets {
 }
 
 ul.snippets > li {
-    margin: 35px 5px 25px 10%;
+    margin: 35px auto;
     border: var(--snippet-frame-border) solid #d1d1d1;
     border-radius: var(--snippet-border-radius);
     width: 60vw;
@@ -641,6 +648,7 @@ ul.snippets > li {
 
     .sidebar {
         margin: 4% 4%;
+        width: 100%;
     }
 
     ul.snippets > li {
@@ -682,5 +690,12 @@ ul.snippets > li {
     }
     .snippet-form .access-fieldset label {
         padding: 0 10px 0 5px;
+    }
+
+    .end-flex-group > img,
+    .end-flex-group > button,
+    .end-flex-group > div,
+    .end-flex-group > a {
+        margin: 0 3%;
     }
 }

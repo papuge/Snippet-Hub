@@ -1,28 +1,21 @@
 import Auth from "../../scripts/auth.js"
+import DataControl from "../../scripts/dataControl.js"
+
 
 const Navbar = {
     render: async () =>
      /*html*/ `
     <div class="start-flex-group">
         <a href="#" class="site-heading">Snippet Hub</a>
-        <form class="search-form" id="searchForm">
-            <button type="submit" class="icon-btn scale-btn" id="searchBtn">
-                <i class="material-icons">search</i>
-            </button>
-            <input type="search" class="search-field" id="searchField" placeholder="Search">
-        </form>
     </div>
     <div class="end-flex-group" id="userMenu">
         <a href="#/newSnippet" class="scale-btn">
             <i class="material-icons" style="color: black;">add</i>
         </a>
-        <a href="#" class="scale-btn">
-            <i class="material-icons" style="color: black;">notifications</i>
-        </a>
         <div class="dropdown" id="profileDropdown">
-            <img src="./images/avatar_placeholder.png" class="nav-profile dropbtn" alt="avatar">
+            <img src="./images/avatar_placeholder.png" class="nav-profile dropbtn" alt="avatar" id="photoDrop">
             <div class="dropdown-content">
-                <a href="#/profile/:id/edit">Edit profile</a>
+                <a href="#/editProfile">Edit profile</a>
                 <button id="logoutBtn">Logout</button>
             </div>
         </div>
@@ -46,9 +39,11 @@ const Navbar = {
         userMenu.style.display = "none";
         loginMenu.style.display = "none";
 
-        firebase.auth().onAuthStateChanged(function (user) {
+        firebase.auth().onAuthStateChanged(async function (user) {
             if (user) {
                 userMenu.style.display = "flex";
+                let currentUser = await DataControl.getUserInfo(user.uid);
+                document.getElementById("photoDrop").src = currentUser.photoUrlPath;
             } else {
                 loginMenu.style.display = "flex";
             }

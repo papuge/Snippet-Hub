@@ -21,10 +21,14 @@ let Auth = {
         firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
 
             firebase.database().ref(`users/${result.user.uid}`).set({
+
                 username: username,
                 firstName: firstName,
                 lastName: lastName,
-                photoUrlPath: "./images/avatar_placeholder.png"
+                photoUrlPath: "./images/avatar_placeholder.png",
+                email: email,
+                about: ""
+
             }, function (error) {
                 if (error) {
                     console.log(error.message);
