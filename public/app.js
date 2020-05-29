@@ -15,14 +15,12 @@ import Error404 from './views/pages/error404.js'
 const routes = {
     "/": Home,
     "/profile/:id": Profile,
-    "/profile/:id/edit": EditProfile,
+    "/editProfile": EditProfile,
     "/login": Login,
     "/signup": SignUp,
     "/snippet/:id": Snippet,
     "/newSnippet": NewSnippet,
     "/snippet/:id/edit": EditSnippet
-    // "/search/:template": Search,
-    // "/notifications/": Notifications
 };
 
 const router = async () => {

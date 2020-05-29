@@ -12,13 +12,10 @@ const Navbar = {
         <a href="#/newSnippet" class="scale-btn">
             <i class="material-icons" style="color: black;">add</i>
         </a>
-        <a href="#" class="scale-btn">
-            <i class="material-icons" style="color: black;">notifications</i>
-        </a>
         <div class="dropdown" id="profileDropdown">
             <img src="./images/avatar_placeholder.png" class="nav-profile dropbtn" alt="avatar" id="photoDrop">
             <div class="dropdown-content">
-                <a href="#/profile/:id/edit">Edit profile</a>
+                <a href="#/editProfile">Edit profile</a>
                 <button id="logoutBtn">Logout</button>
             </div>
         </div>
