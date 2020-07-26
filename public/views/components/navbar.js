@@ -1,5 +1,6 @@
 import Auth from "../../scripts/auth.js"
 import DataControl from "../../scripts/dataControl.js"
+import Utils from "../../scripts/utils.js";
 
 
 const Navbar = {
@@ -7,6 +8,12 @@ const Navbar = {
      /*html*/ `
     <div class="start-flex-group">
         <a href="#" class="site-heading">Snippet Hub</a>
+        <form class="search-form" id="searchForm">
+            <button type="submit" class="icon-btn scale-btn" id="searchBtn">
+                <i class="material-icons">search</i>
+            </button>
+            <input type="search" class="search-field" id="searchField" placeholder="Search">
+        </form>
     </div>
     <div class="end-flex-group" id="userMenu">
         <a href="#/newSnippet" class="scale-btn">
@@ -39,6 +46,11 @@ const Navbar = {
         userMenu.style.display = "none";
         loginMenu.style.display = "none";
 
+        document.getElementById("searchForm").addEventListener("submit", async (event) => {
+            let query = document.getElementById("searchField").value;
+            Utils.navigateTo("#/searchResult/" + query);
+        });
+
         firebase.auth().onAuthStateChanged(async function (user) {
             if (user) {
                 userMenu.style.display = "flex";
@@ -48,6 +60,7 @@ const Navbar = {
                 loginMenu.style.display = "flex";
             }
         });
+
     }
 }
 

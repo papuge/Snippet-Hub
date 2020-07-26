@@ -9,6 +9,7 @@ import SignUp from './views/pages/signup.js'
 import EditProfile from './views/pages/editProfile.js'
 import Home from './views/pages/home.js'
 import Profile from './views/pages/profile.js'
+import SearchResult from './views/pages/searchResult.js'
 import Error404 from './views/pages/error404.js'
 
 
@@ -20,7 +21,8 @@ const routes = {
     "/signup": SignUp,
     "/snippet/:id": Snippet,
     "/newSnippet": NewSnippet,
-    "/snippet/:id/edit": EditSnippet
+    "/snippet/:id/edit": EditSnippet,
+    "/searchResult/:id": SearchResult
 };
 
 const router = async () => {

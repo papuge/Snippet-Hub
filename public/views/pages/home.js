@@ -9,6 +9,12 @@ import DataControl from "../../scripts/dataControl.js"
 const Home = {
     render: async () =>
      /*html*/ `
+     <form class="mobile-search-form" id="mobileSearchForm">
+        <button type="submit" class="icon-btn scale-btn" id="searchBtn">
+            <i class="material-icons">search</i>
+        </button>
+        <input type="search" class="search-field" id="mobileSearchField" placeholder="Search">
+     </form>
      <div class="page-content profile-view-flex" id="homeDiv">
      <aside class="sidebar">
          <img src="./images/avatar_placeholder.png" class="sidebar-avatar" alt="avatar" id="profilePhoto">
@@ -60,6 +66,11 @@ const Home = {
             tabContent[i].style.display = "none";
         }
         document.getElementById("userSnippets").style.display = "block";
+
+        document.getElementById("mobileSearchForm").addEventListener("submit", async (event) => {
+            let query = document.getElementById("mobileSearchField").value;
+            Utils.navigateTo("#/searchResult/" + query);
+        });
 
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {

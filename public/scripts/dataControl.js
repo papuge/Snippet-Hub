@@ -211,6 +211,34 @@ const DataControl = {
         await firebase.database().ref().update(updates, () => {
             Utils.navigateTo(`/`);
         });
+    },
+
+    getUsersFromQuery: async(query) => {
+        let users = [];
+        const ref = firebase.database().ref("users");
+        await ref.orderByChild("username").equalTo(query).once("value").then(function(snapshot) {
+            snapshot.forEach(function (item) {
+                let user = item.val();
+                user.uid = item.key;
+                users.push(user);
+            });
+        });
+        return users;
+    },
+
+    getSnippetsFromQuery: async(query) => {
+        let snippets = [];
+        const ref = firebase.database().ref("snippets");
+        await ref.orderByChild("name").equalTo(query).once("value").then(function(snapshot) {
+            snapshot.forEach(function (item) {
+                let snippet = item.val();
+                if (snippet.access == "public") {
+                    snippet.id = item.key;
+                    snippets.push(snippet);
+                }
+            });
+        });
+        return snippets;
     }
 }
 

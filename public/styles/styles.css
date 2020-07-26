@@ -67,6 +67,10 @@ body {
     margin: 20px 0px;
 }
 
+.m-search-content {
+    margin: 20px 10%;
+}
+
 .not-displayed {
     display: none;
 }
